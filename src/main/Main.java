@@ -25,10 +25,13 @@ public class Main {
 		// Initialize a list composed of strings called inputData.
 		List<String> inputData = new ArrayList<String>();
 
-		// Initialize a string called csvFiles that can be 24 chars long
-
 		File[] inputSubDirs = new File(INPUT_PATH).listFiles();
 		List<File> inputSubDirsToProcess = new ArrayList<File>();
+
+		// Create the output dir if it doesnt exist
+		if (!new File(OUTPUT_PATH).exists()) {
+			Files.createDirectories(Paths.get(OUTPUT_PATH));
+		}
 
 		for (File subInputDir : inputSubDirs) {
 			File processed = new File(subInputDir.getPath() + "\\processed.txt");
@@ -99,7 +102,7 @@ public class Main {
 							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
 							"" };
 
-					timeStamp = timeStamp.substring(0, (timeStamp.length() -2));
+					timeStamp = timeStamp.substring(0, (timeStamp.length() - 2));
 					for (String register : valve) {
 						if (register.contains(timeStamp)) {
 							String property = register.split(",")[3].split("_")[tempValveAndProp.length - 1];
