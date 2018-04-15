@@ -105,6 +105,7 @@ public class Main {
 							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
 							"" };
 
+					timeStamp = timeStamp.substring(0, (timeStamp.length() -2));
 					for (String register : valve) {
 						if (register.contains(timeStamp)) {
 							int propertyIndex = longValve ? 4 : 3;
