@@ -86,28 +86,76 @@ public class Main {
 						case 0:
 							lineToWrite[i] = formatter.format(date);
 							break;
+						case 1:
+							lineToWrite[i] = "1";
+							break;
+						case 9:
+							lineToWrite[i] = "0";
+							break;
+						case 21:
+							lineToWrite[i] = "0";
+							break;
+						case 29:
+							lineToWrite[i] = "0";
+							break;
+						case 33:
+							lineToWrite[i] = "0";
+							break;
+						case 41:
+							lineToWrite[i] = "0";
+							break;
 						case 47:
 							lineToWrite[i] = "4";
+							break;
+						case 53:
+							lineToWrite[i] = "0";
 							break;
 						case 59:
 							lineToWrite[i] = "1";
 							break;
+						case 61:
+							lineToWrite[i] = "0";
+							break;
 						case 67:
 							lineToWrite[i] = "1";
+							break;
+						case 69:
+							lineToWrite[i] = "0";
 							break;
 						case 75:
 							lineToWrite[i] = "1";
 							break;
+						case 77:
+							lineToWrite[i] = "0";
+							break;
 						case 83:
 							lineToWrite[i] = "3";
+							break;
+						case 85:
+							lineToWrite[i] = "0";
 							break;
 						case 91:
 							lineToWrite[i] = "2";
 							break;
+						case 93:
+							lineToWrite[i] = "0";
+							break;
 						case 99:
 							lineToWrite[i] = "2";
 							break;
+						case 101:
+							lineToWrite[i] = "0";
+							break;
+						case 105:
+							lineToWrite[i] = "0";
+							break;
+						case 113:
+							lineToWrite[i] = "0";
+							break;
 						case 117:
+							lineToWrite[i] = "0";
+							break;
+						case 149:
 							lineToWrite[i] = "0";
 							break;
 						default:
