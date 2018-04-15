@@ -49,6 +49,7 @@ public class Main {
 				inputData.addAll(data);
 			}
 			System.out.println("Done reading input files...");
+			System.out.println("Working in directory " + inputSubDir);
 
 			while (inputData.size() > 0) {
 				StringBuilder writeToFile = new StringBuilder();
