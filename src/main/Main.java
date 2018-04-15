@@ -65,15 +65,9 @@ public class Main {
 				List<String> valve = new ArrayList<String>();
 				String[] tempLine = inputData.get(0).split(",");
 				String[] tempValveAndProp = tempLine[3].split("_");
-				String valveName;
-				Boolean longValve = false;
-				if (tempValveAndProp.length <= 4) {
-					valveName = tempValveAndProp[0] + "_" + tempValveAndProp[1] + "_" + tempValveAndProp[2];
-				} else {
-					longValve = true;
-					valveName = tempValveAndProp[0] + "_" + tempValveAndProp[1] + "_" + tempValveAndProp[2] + "_"
-							+ tempValveAndProp[3];
-				}
+				String valveName = new String();
+				for (int i = 0; i < tempValveAndProp.length - 1; i++)
+					valveName = (i == 0) ? tempValveAndProp[i] : valveName + "_" + tempValveAndProp[i];
 
 				System.out.println("Processing data for valve: " + valveName);
 
@@ -108,8 +102,7 @@ public class Main {
 					timeStamp = timeStamp.substring(0, (timeStamp.length() -2));
 					for (String register : valve) {
 						if (register.contains(timeStamp)) {
-							int propertyIndex = longValve ? 4 : 3;
-							String property = register.split(",")[3].split("_")[propertyIndex];
+							String property = register.split(",")[3].split("_")[tempValveAndProp.length - 1];
 							String value = register.split(",")[4];
 							parseProperty(lineToWrite, property, value);
 						} else {
