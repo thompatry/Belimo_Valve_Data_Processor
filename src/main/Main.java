@@ -140,7 +140,7 @@ public class Main {
 						}
 					}
 				}
-				String fileName = OUTPUT_PATH + valveName + ".csv";
+				String fileName = OUTPUT_PATH + valveName.toUpperCase() + ".csv";
 				System.out.println("Done processing data for valve: " + valveName + ". Writing data to: " + fileName);
 				if (!new File(fileName).exists()) {
 					Files.createFile(Paths.get(fileName));
