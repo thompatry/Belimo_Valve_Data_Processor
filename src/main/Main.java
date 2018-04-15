@@ -1,10 +1,8 @@
 package main;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -141,9 +139,8 @@ public class Main {
 				}
 				Files.write(Paths.get(fileName), writeToFile.toString().getBytes(), StandardOpenOption.APPEND);
 			}
-			BufferedWriter writer = new BufferedWriter(new FileWriter(inputSubDir.getPath() + "\\processed.txt"));
-			writer.write(new Date().toString());
-			writer.close();
+			Files.createFile(Paths.get(inputSubDir.getPath() + "\\processed.txt"));
+			Files.write(Paths.get(inputSubDir.getPath() + "\\processed.txt"), (new Date().toString()).getBytes(), StandardOpenOption.APPEND);
 		}
 
 		System.out.println("Finished processing all valves!");
