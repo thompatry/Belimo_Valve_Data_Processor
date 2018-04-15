@@ -1,8 +1,6 @@
 package main;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -46,14 +44,9 @@ public class Main {
 		for (File inputSubDir : inputSubDirsToProcess) {
 			System.out.println("Reading input files...");
 			for (File file : inputSubDir.listFiles()) {
-				try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-					br.readLine();
-					while ((line = br.readLine()) != null) {
-						inputData.add(line);
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				List<String> data = Files.readAllLines(Paths.get(file.getPath()));
+				data.remove(0);
+				inputData.addAll(data);
 			}
 			System.out.println("Done reading input files...");
 
