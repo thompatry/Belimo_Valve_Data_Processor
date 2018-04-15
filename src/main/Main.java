@@ -44,12 +44,8 @@ public class Main {
 		}
 
 		for (File inputSubDir : inputSubDirsToProcess) {
-			String[] csvFiles = new String[24];
-			for (int i = 0; i < 24; i++) {
-				csvFiles[i] = inputSubDir.getPath() + "\\" + Integer.toString(i) + ".csv";
-			}
 			System.out.println("Reading input files...");
-			for (String file : csvFiles) {
+			for (File file : inputSubDir.listFiles()) {
 				try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 					br.readLine();
 					while ((line = br.readLine()) != null) {
