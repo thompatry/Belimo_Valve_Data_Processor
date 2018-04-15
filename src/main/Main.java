@@ -13,8 +13,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		//Set the two PATH strings as a constant variable that can never be changed
-		final String INPUT_PATH = "C:\\Users\\h223970\\Nextcloud\\1_Projects Shared\\Kansas\\KSU\\5_Belimo\\Belimo Energy Valve Analysis Files Sample\\Thomas\\history\\18apr7\\";
-		final String OUTPUT_PATH = "C:\\Users\\h223970\\Nextcloud\\1_Projects Shared\\Kansas\\KSU\\5_Belimo\\Belimo Energy Valve Analysis Files Sample\\Thomas\\valve_data\\";
+		final String INPUT_PATH = "C:\\history\\18apr7\\";
+		final String OUTPUT_PATH = "C:\\valve_data\\";
 		//Initialize the variable line as a string
 		String line = "";
 		//Initialize a list composed of strings called inputData. 
