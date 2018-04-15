@@ -130,10 +130,10 @@ public class Main {
 	private static void parseProperty(String[] line, String property, String value) {
 		switch (property) {
 		case "CtrlMd":
-			line[1] = value;
+			line[1] = (String.valueOf(Integer.valueOf(value) - 1));
 			break;
 		case "DeltaTMgrSts":
-			line[9] = value;
+			line[9] = (String.valueOf(Integer.valueOf(value) - 1));
 			break;
 		case "RelPos":
 			line[21] = value;
@@ -166,7 +166,7 @@ public class Main {
 			line[93] = value;
 			break;
 		case "DeltaTLimitation":
-			line[101] = value;
+			line[101] = (String.valueOf(Integer.valueOf(value) - 1));
 			break;
 		case "DeltaTSp":
 			line[105] = value;
