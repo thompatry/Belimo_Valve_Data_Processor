@@ -79,16 +79,42 @@ public class Main {
 
 					date.setTime((long) Integer.parseInt(timeStamp) * 1000);
 					formatter.format(date);
-					String[] lineToWrite = { formatter.format(date), "", "", "", "", "", "", "", "", "", "", "", "", "",
-							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-							"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-							"" };
+					String[] lineToWrite = new String[150];
 
+					for (int i = 0; i < lineToWrite.length; i++) {
+						switch (i) {
+						case 0:
+							lineToWrite[i] = formatter.format(date);
+							break;
+						case 47:
+							lineToWrite[i] = "4";
+							break;
+						case 59:
+							lineToWrite[i] = "1";
+							break;
+						case 67:
+							lineToWrite[i] = "1";
+							break;
+						case 75:
+							lineToWrite[i] = "1";
+							break;
+						case 83:
+							lineToWrite[i] = "3";
+							break;
+						case 91:
+							lineToWrite[i] = "2";
+							break;
+						case 99:
+							lineToWrite[i] = "2";
+							break;
+						case 117:
+							lineToWrite[i] = "0";
+							break;
+						default:
+							lineToWrite[i] = "";
+						}
+
+					}
 					timeStamp = timeStamp.substring(0, (timeStamp.length() - 2));
 					for (String register : valve) {
 						if (register.contains(timeStamp)) {
@@ -129,7 +155,8 @@ public class Main {
 				Files.write(Paths.get(fileName), writeToFile.toString().getBytes(), StandardOpenOption.APPEND);
 			}
 			Files.createFile(Paths.get(inputSubDir.getPath() + "\\processed.txt"));
-			Files.write(Paths.get(inputSubDir.getPath() + "\\processed.txt"), (new Date().toString()).getBytes(), StandardOpenOption.APPEND);
+			Files.write(Paths.get(inputSubDir.getPath() + "\\processed.txt"), (new Date().toString()).getBytes(),
+					StandardOpenOption.APPEND);
 		}
 
 		System.out.println("Finished processing all valves!");
