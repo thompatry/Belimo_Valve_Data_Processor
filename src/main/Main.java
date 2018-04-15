@@ -73,7 +73,7 @@ public class Main {
 
 				while (valve.size() > 0) {
 					templist = new ArrayList<String>();
-					SimpleDateFormat formatter = new SimpleDateFormat("MM/d/yyyy HH:mm");
+					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 					Date date = new Date();
 					String timeStamp = valve.get(0).split(",")[2];
 
