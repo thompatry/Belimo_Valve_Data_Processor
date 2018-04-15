@@ -119,24 +119,14 @@ public class Main {
 		}
 		System.out.println("Finished processing all valves!");
 	}
-	
-	private static String string2int2string(String value) {
-		int tempValue;
-		tempValue = Integer.parseInt(value);
-		tempValue = tempValue--;
-		value = String.valueOf(tempValue);
-		return value;
-	}
 
 	private static void parseProperty(String[] line, String property, String value) {
 		switch (property) {
 		case "CtrlMd":
-			value = string2int2string(value);
-			line[1] = value;
+			line[1] = (String.valueOf(Integer.valueOf(value) - 1));
 			break;
 		case "DeltaTMgrSts":
-			value = string2int2string(value);
-			line[9] = value;
+			line[9] = (String.valueOf(Integer.valueOf(value) - 1));
 			break;
 		case "RelPos":
 			line[21] = value;
@@ -169,8 +159,7 @@ public class Main {
 			line[93] = value;
 			break;
 		case "DeltaTLimitation":
-			value = string2int2string(value);
-			line[101] = value;
+			line[101] = (String.valueOf(Integer.valueOf(value) - 1));
 			break;
 		case "DeltaTSp":
 			line[105] = value;
