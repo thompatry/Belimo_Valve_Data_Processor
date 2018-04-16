@@ -56,7 +56,7 @@ public class Main {
 
 			while (inputData.size() > 0) {
 				Date date = new Date();
-				SimpleDateFormat fileNameFormatter = new SimpleDateFormat("MMMyyyy");
+				SimpleDateFormat fileNameFormatter = new SimpleDateFormat("yyyyMMM");
 				StringBuilder writeToFile = new StringBuilder();
 				List<String> valve = new ArrayList<String>();
 				String[] tempLine = inputData.get(0).split(",");
