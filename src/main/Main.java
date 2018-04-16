@@ -74,97 +74,13 @@ public class Main {
 
 				while (valve.size() > 0) {
 					templist = new ArrayList<String>();
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 					Date date = new Date();
 					String timeStamp = valve.get(0).split(",")[2];
-
+					String[] lineToWrite = createLineToWrite(date);
+					
 					date.setTime((long) Integer.parseInt(timeStamp) * 1000);
-					formatter.format(date);
-					String[] lineToWrite = new String[150];
-
-					for (int i = 0; i < lineToWrite.length; i++) {
-						switch (i) {
-						case 0:
-							lineToWrite[i] = formatter.format(date);
-							break;
-						case 1:
-							lineToWrite[i] = "1";
-							break;
-						case 9:
-							lineToWrite[i] = "0";
-							break;
-						case 21:
-							lineToWrite[i] = "0";
-							break;
-						case 29:
-							lineToWrite[i] = "0";
-							break;
-						case 33:
-							lineToWrite[i] = "0";
-							break;
-						case 41:
-							lineToWrite[i] = "0";
-							break;
-						case 47:
-							lineToWrite[i] = "4";
-							break;
-						case 53:
-							lineToWrite[i] = "0";
-							break;
-						case 59:
-							lineToWrite[i] = "1";
-							break;
-						case 61:
-							lineToWrite[i] = "0";
-							break;
-						case 67:
-							lineToWrite[i] = "1";
-							break;
-						case 69:
-							lineToWrite[i] = "0";
-							break;
-						case 75:
-							lineToWrite[i] = "1";
-							break;
-						case 77:
-							lineToWrite[i] = "0";
-							break;
-						case 83:
-							lineToWrite[i] = "3";
-							break;
-						case 85:
-							lineToWrite[i] = "0";
-							break;
-						case 91:
-							lineToWrite[i] = "2";
-							break;
-						case 93:
-							lineToWrite[i] = "0";
-							break;
-						case 99:
-							lineToWrite[i] = "2";
-							break;
-						case 101:
-							lineToWrite[i] = "0";
-							break;
-						case 105:
-							lineToWrite[i] = "0";
-							break;
-						case 113:
-							lineToWrite[i] = "0";
-							break;
-						case 117:
-							lineToWrite[i] = "0";
-							break;
-						case 149:
-							lineToWrite[i] = "0";
-							break;
-						default:
-							lineToWrite[i] = "";
-						}
-
-					}
 					timeStamp = timeStamp.substring(0, (timeStamp.length() - 2));
+					
 					for (String register : valve) {
 						if (register.contains(timeStamp)) {
 							String property = register.split(",")[3].split("_")[tempValveAndProp.length - 1];
@@ -262,5 +178,94 @@ public class Main {
 			line[149] = value;
 			break;
 		}
+	}
+	
+	private static String[] createLineToWrite(Date date) {
+		String[] lineToWrite = new String[150];
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		
+		for (int i = 0; i < lineToWrite.length; i++) {
+			switch (i) {
+			case 0:
+				lineToWrite[i] = formatter.format(date);
+				break;
+			case 1:
+				lineToWrite[i] = "1";
+				break;
+			case 9:
+				lineToWrite[i] = "0";
+				break;
+			case 21:
+				lineToWrite[i] = "0";
+				break;
+			case 29:
+				lineToWrite[i] = "0";
+				break;
+			case 33:
+				lineToWrite[i] = "0";
+				break;
+			case 41:
+				lineToWrite[i] = "0";
+				break;
+			case 47:
+				lineToWrite[i] = "4";
+				break;
+			case 53:
+				lineToWrite[i] = "0";
+				break;
+			case 59:
+				lineToWrite[i] = "1";
+				break;
+			case 61:
+				lineToWrite[i] = "0";
+				break;
+			case 67:
+				lineToWrite[i] = "1";
+				break;
+			case 69:
+				lineToWrite[i] = "0";
+				break;
+			case 75:
+				lineToWrite[i] = "1";
+				break;
+			case 77:
+				lineToWrite[i] = "0";
+				break;
+			case 83:
+				lineToWrite[i] = "3";
+				break;
+			case 85:
+				lineToWrite[i] = "0";
+				break;
+			case 91:
+				lineToWrite[i] = "2";
+				break;
+			case 93:
+				lineToWrite[i] = "0";
+				break;
+			case 99:
+				lineToWrite[i] = "2";
+				break;
+			case 101:
+				lineToWrite[i] = "0";
+				break;
+			case 105:
+				lineToWrite[i] = "0";
+				break;
+			case 113:
+				lineToWrite[i] = "0";
+				break;
+			case 117:
+				lineToWrite[i] = "0";
+				break;
+			case 149:
+				lineToWrite[i] = "0";
+				break;
+			default:
+				lineToWrite[i] = "";
+			}
+
+		}
+		return lineToWrite;
 	}
 }
