@@ -43,6 +43,7 @@ public class Main {
 		for (File inputSubDir : inputSubDirsToProcess) {
 			System.out.println("Reading input files...");
 			for (File file : inputSubDir.listFiles()) {
+				System.out.println(inputSubDir + "/" + file);
 				List<String> data = Files.readAllLines(Paths.get(file.getPath()));
 				data.remove(0);
 				for (String line : data) {
