@@ -77,13 +77,16 @@ public class Main {
 				}
 				inputData = templist;
 
+				String[] prevLineToWrite = createLineToWrite(date);
+				
 				while (valve.size() > 0) {
 					templist = new ArrayList<String>();
 					String timeStamp = valve.get(0).split(",")[2];
-					String[] lineToWrite = createLineToWrite(date);
-
 					date.setTime((long) Integer.parseInt(timeStamp) * 1000);
 					timeStamp = timeStamp.substring(0, (timeStamp.length() - 2));
+					String[] lineToWrite = createLineToWrite(date); 
+
+					
 
 					for (String register : valve) {
 						if (register.contains(timeStamp)) {
@@ -98,8 +101,11 @@ public class Main {
 
 					for (int i = 0; i < lineToWrite.length; i++) {
 						if (!lineToWrite[i].isEmpty()) {
-							if (i != lineToWrite.length - 1)
-								writeToFile.append(lineToWrite[i] + ",");
+							if (i != lineToWrite.length - 1) {
+								if (lineToWrite[i].equals("0")) {
+									lineToWrite[i] = prevLineToWrite[i];
+								}
+								writeToFile.append(lineToWrite[i] + ",");}
 							else
 								writeToFile.append(lineToWrite[i] + "\n");
 						} else {
@@ -109,6 +115,7 @@ public class Main {
 								writeToFile.append("\n");
 						}
 					}
+					prevLineToWrite = lineToWrite;
 				}
 				String filePath = OUTPUT_PATH + valveName.toUpperCase() + "\\";
 				String fileName = fileNameFormatter.format(date) + ".csv";
@@ -196,7 +203,7 @@ public class Main {
 	private static String[] createLineToWrite(Date date) {
 		String[] lineToWrite = new String[150];
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-
+		
 		for (int i = 0; i < lineToWrite.length; i++) {
 			switch (i) {
 			case 0:
